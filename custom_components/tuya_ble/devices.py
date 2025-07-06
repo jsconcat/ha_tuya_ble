@@ -422,7 +422,7 @@ devices_database: dict[str, TuyaBLECategoryInfo] = {
     "kg": TuyaBLECategoryInfo(
         products={
             **dict.fromkeys(
-                ["mknd4lci", "riecov42"],  # device product_ids
+                ["mknd4lci", "riecov42", "bs3ubslo"],  # device product_ids
                 TuyaBLEProductInfo(
                     name="Fingerbot Plus",
                     fingerbot=TuyaBLEFingerbotInfo(
@@ -437,6 +437,19 @@ devices_database: dict[str, TuyaBLECategoryInfo] = {
                     ),
                 ),
             ),
+            # "bs3ubslo": TuyaBLEProductInfo(  # device product_id
+            #     name="Fingerbot Touch",
+            #     fingerbot=TuyaBLEFingerbotInfo(
+            #         switch=1,
+            #         mode=101,
+            #         up_position=106,
+            #         down_position=102,
+            #         hold_time=103,
+            #         reverse_positions=104,
+            #         manual_control=107,
+            #         program=109,
+            #     ),
+            # ),
         },
     ),
     "wk": TuyaBLECategoryInfo(
