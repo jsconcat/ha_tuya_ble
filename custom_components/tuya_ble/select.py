@@ -156,14 +156,12 @@ mapping: dict[str, TuyaBLECategorySelectMapping] = {
     "kg": TuyaBLECategorySelectMapping(
         products={
             **dict.fromkeys(
-                [
-                    "mknd4lci",
-                    "riecov42", "bs3ubslo"
-                ],  # Fingerbot Plus
-                [
-                    TuyaBLEFingerbotModeMapping(dp_id=101),
-                ],
+                ["mknd4lci", "riecov42"],
+                [TuyaBLEFingerbotModeMapping(dp_id=101)],
             ),
+            "bs3ubslo": [
+                TuyaBLEFingerbotModeMapping(dp_id=101),
+            ],
         },
     ),
     "wsdcg": TuyaBLECategorySelectMapping(

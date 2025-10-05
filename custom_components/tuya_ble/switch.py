@@ -273,11 +273,9 @@ mapping: dict[str, TuyaBLECategorySwitchMapping] = {
     ),
     "kg": TuyaBLECategorySwitchMapping(
         products={
+            # Fingerbot Plus (keep as-is)
             **dict.fromkeys(
-                [
-                    "mknd4lci",
-                    "riecov42","bs3ubslo"
-                ],  # Fingerbot Plus
+                ["mknd4lci", "riecov42"],
                 [
                     TuyaBLEFingerbotSwitchMapping(dp_id=1),
                     TuyaBLEReversePositionsMapping(dp_id=104),
@@ -310,6 +308,45 @@ mapping: dict[str, TuyaBLECategorySwitchMapping] = {
                     ),
                 ],
             ),
+            # Fingerbot Touch (bs3ubslo) – dual channel and corrected DPs
+            "bs3ubslo": [
+                TuyaBLEFingerbotSwitchMapping(dp_id=1),  # CH1
+                TuyaBLEFingerbotSwitchMapping(
+                    dp_id=2,
+                    description=SwitchEntityDescription(
+                        key="switch_2",
+                        name="Switch CH2",
+                    ),
+                ),
+                TuyaBLEReversePositionsMapping(dp_id=107),  # invert action
+                TuyaBLESwitchMapping(
+                    dp_id=105,
+                    description=SwitchEntityDescription(
+                        key="manual_control",
+                        icon="mdi:gesture-tap-box",
+                        entity_category=EntityCategory.CONFIG,
+                    ),
+                ),
+                TuyaBLESwitchMapping(
+                    dp_id=1,
+                    description=SwitchEntityDescription(
+                        key="program",
+                        icon="mdi:repeat",
+                    ),
+                    is_available=is_fingerbot_in_program_mode,
+                ),
+                TuyaBLESwitchMapping(
+                    dp_id=109,
+                    description=SwitchEntityDescription(
+                        key="program_repeat_forever",
+                        icon="mdi:repeat",
+                        entity_category=EntityCategory.CONFIG,
+                    ),
+                    getter=get_fingerbot_program_repeat_forever,
+                    is_available=is_fingerbot_in_program_mode,
+                    setter=set_fingerbot_program_repeat_forever,
+                ),
+            ],
         },
     ),
     "wk": TuyaBLECategorySwitchMapping(

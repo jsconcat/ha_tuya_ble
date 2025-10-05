@@ -438,17 +438,17 @@ devices_database: dict[str, TuyaBLECategoryInfo] = {
                 ),
             ),
             "bs3ubslo": TuyaBLEProductInfo(  # device product_id
-                name="Fingerbot Touch",
-                # Dual-channel: the device exposes switch_1 (DP 1) and switch_2 (DP 2).                
+                name="Fingerbot Touch (Dual Channel)",
+                # Dual-channel device: channel switches are on DP 1 and DP 2.
                 fingerbot=TuyaBLEFingerbotInfo(
-                    switch=1,           # DP 1: switch_1
-                    mode=101,           # DP 101: mode_1 (click | switch | program)
-                    up_position=0,      # not supported on this model
-                    down_position=0,    # not supported on this model
-                    hold_time=103,      # DP 103: touch_time_1 (ms)
-                    reverse_positions=107,  # DP 107: invert_switch_1
-                    manual_control=105, # DP 105: touch_enable_1
-                    program=109,        # DP 109: custom_timer_1 (blob)
+                    switch=1,            # DP 1: switch_1 (primary channel)
+                    mode=101,            # DP 101: mode ("click" | "switch" | "program")
+                    up_position=0,       # not supported on Touch
+                    down_position=0,     # not supported on Touch
+                    hold_time=103,       # DP 103: hold time (ms)
+                    reverse_positions=107,  # DP 107: invert action
+                    manual_control=105,  # DP 105: enable touch button
+                    program=109,         # DP 109: program blob
                 ),
             ),
         },
