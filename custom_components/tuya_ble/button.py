@@ -110,9 +110,24 @@ mapping: dict[str, TuyaBLECategoryButtonMapping] = {
                 ["mknd4lci", "riecov42"],
                 [TuyaBLEFingerbotModeMapping(dp_id=108)],
             ),
-            # Fingerbot Touch (bs3ubslo) – push via DP 1 in push mode
+            # Fingerbot Touch – two push buttons, CH1 and CH2
             "bs3ubslo": [
-                TuyaBLEFingerbotModeMapping(dp_id=1),
+                TuyaBLEFingerbotModeMapping(
+                    dp_id=1,
+                    is_available=is_fingerbot_in_push_mode,
+                    description=ButtonEntityDescription(
+                        key="push_1",          # unique key for CH1
+                        name="Push CH1",
+                    ),
+                ),
+                TuyaBLEFingerbotModeMapping(
+                    dp_id=2,
+                    is_available=is_fingerbot_in_push_mode,
+                    description=ButtonEntityDescription(
+                        key="push_2",        # unique key for CH2
+                        name="Push CH2",
+                    ),
+                ),
             ],
         },
     ),

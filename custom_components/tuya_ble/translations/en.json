@@ -75,7 +75,7 @@
         "state": {
           "program": "Program",
           "push": "Push",
-          "switch": "[%key:component::switch::entity_component::_::name%]"
+          "switch": "Switch"
         }
       },
       "temperature_unit": {
@@ -94,7 +94,7 @@
     },
     "binary_sensor": {
       "low_battery": {
-        "name": "[%key:component::sensor::entity_component::battery::name%]"
+        "name": "Low Battery"
       },
       "lock_motor_state": {
           "name": "Motor State"
@@ -102,22 +102,22 @@
     },
     "sensor": {
       "battery": {
-        "name": "[%key:component::sensor::entity_component::battery::name%]"
+        "name": "Battery"
       },
       "battery_charging": {
         "name": "Battery charging",
         "state": {
           "charged": "Charged",
-          "charging": "[%key:component::binary_sensor::entity_component::battery_charging::state::on%]",
-          "not_charging": "[%key:component::binary_sensor::entity_component::battery_charging::state::off%]"
+          "charging": "Charging",
+          "not_charging": "Not Charging"
         }
       },
       "battery_state": {
         "name": "Battery state",
         "state": {
           "high": "High",
-          "low": "[%key:component::binary_sensor::entity_component::battery::state::on%]",
-          "normal": "[%key:component::binary_sensor::entity_component::battery::state::off%]"
+          "low": "Low",
+          "normal": "Normal"
         }
       },
       "carbon_dioxide": {

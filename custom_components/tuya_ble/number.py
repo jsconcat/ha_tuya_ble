@@ -400,7 +400,20 @@ mapping: dict[str, TuyaBLECategoryNumberMapping] = {
             ),
             # Fingerbot Touch – only hold_time and program helpers
             "bs3ubslo": [
-                TuyaBLEHoldTimeMapping(dp_id=103),
+                TuyaBLEHoldTimeMapping(
+                    dp_id=103,
+                    description=NumberEntityDescription(
+                        key="hold_time",
+                        icon="mdi:timer",
+                        native_unit_of_measurement="ms",
+                        native_step=100,
+                        native_max_value=5000,
+                        native_min_value=500,
+                        entity_category=EntityCategory.CONFIG,
+                    ),
+                    #getter=lambda v: v / 1000,
+                    #setter=lambda v: int(v * 1000),
+                ),
                 TuyaBLENumberMapping(
                     dp_id=109,
                     description=NumberEntityDescription(
